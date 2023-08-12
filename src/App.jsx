@@ -25,7 +25,7 @@ function App() {
     (playlist) => playlist.id === currentPlayListId
   );
 
-  console.log(playlistsLoading, playList);
+  // console.log(playlistsLoading, playList);
 
   return (
     <div className="main">
@@ -41,7 +41,11 @@ function App() {
         activeSong={activeSong}
       />
       {activeSong && (
-        <Player setCurrentSong={setActiveSong} activeSong={activeSong} />
+        <Player
+          setCurrentSong={setActiveSong}
+          activeSong={activeSong}
+          key={activeSong?.title}
+        />
       )}
     </div>
   );
