@@ -1,20 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { formatTime } from "../../utils/utlities";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBackward,
-  faEllipsisVertical,
-  faForward,
-  faPause,
-  faPlay,
-  faVolumeHigh,
-} from "@fortawesome/free-solid-svg-icons";
+import SongProgressBar from "./ProgressBar";
+import Controls from "./Controls";
 
 function Player({ setCurrentSong, activeSong }) {
   const audioRef = useRef();
   const progressBarRef = useRef();
   const [currentDuration, setCurrentDuration] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+
   useEffect(() => {
     audioRef.current?.play();
   }, []);
@@ -28,12 +21,14 @@ function Player({ setCurrentSong, activeSong }) {
     setIsPlaying((prev) => !prev);
   };
 
-  // console.log(activeSong);
-
   const handleTimeUpdate = () => {
     if (audioRef.current) {
       setCurrentDuration(audioRef.current.currentTime);
     }
+  };
+
+  const handleCloseBtnClk = () => {
+    setCurrentSong(null);
   };
 
   useEffect(() => {
@@ -45,18 +40,12 @@ function Player({ setCurrentSong, activeSong }) {
 
   return (
     <div className="player">
-      <button
-        type="button"
-        className="close-btn"
-        onClick={() => {
-          setCurrentSong(null);
-        }}
-      >
+      <button type="button" className="close-btn" onClick={handleCloseBtnClk}>
         Close
       </button>
       <DisplaySongDetails activeSong={activeSong} />
       <audio ref={audioRef} src={activeSong?.url} />
-      <ProgressBar
+      <SongProgressBar
         duration={audioRef.current?.duration || 0}
         audioRef={audioRef}
         progressBarRef={progressBarRef}
@@ -81,63 +70,6 @@ function DisplaySongDetails({ activeSong }) {
       <div className="poster-container">
         <img src={activeSong?.photo} alt="song poster" />
       </div>
-    </div>
-  );
-}
-
-function ProgressBar({ duration, progressBarRef, audioRef, currentDuration }) {
-  const handleSeek = () => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = progressBarRef.current?.value;
-    }
-  };
-
-  const completedProgress = currentDuration / duration;
-
-  return (
-    <div className="progress-bar">
-      <span>{formatTime(audioRef.current?.currentTime || 0)}</span>
-      <div className="input-container">
-        <div
-          className="completed-progress"
-          style={{ width: `${completedProgress * 100}%` }}
-        ></div>
-        <input
-          type="range"
-          onChange={handleSeek}
-          value={currentDuration}
-          ref={progressBarRef}
-          max={duration}
-        />
-      </div>
-      <span>{formatTime(duration)}</span>
-    </div>
-  );
-}
-
-function Controls({ handlePlayPause, handleNext, isPlaying }) {
-  return (
-    <div className="controls-container">
-      <button className="ellipsis-btn">
-        <FontAwesomeIcon className="control-icon" icon={faEllipsisVertical} />
-      </button>
-      <div className="controls">
-        <button onClick={handleNext}>
-          <FontAwesomeIcon className="control-icon" icon={faBackward} />
-        </button>
-        <button className="pause" onClick={handlePlayPause}>
-          <FontAwesomeIcon
-            className="control-icon"
-            icon={isPlaying ? faPause : faPlay}
-          />
-        </button>
-        <button onClick={handleNext}>
-          <FontAwesomeIcon className="control-icon" icon={faForward} />
-        </button>
-      </div>
-      <button className="sound-btn">
-        <FontAwesomeIcon className="control-icon" icon={faVolumeHigh} />
-      </button>
     </div>
   );
 }

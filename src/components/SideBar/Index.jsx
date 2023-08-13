@@ -1,6 +1,7 @@
 import Logo from "../../assets/logo.svg";
 
 function SideBar({ sidebarItems, currentPlayListId, handlePlayListClk }) {
+  console.log(currentPlayListId);
   return (
     <div className="sidebar">
       <div className="sidebar-logo-container">
@@ -11,7 +12,7 @@ function SideBar({ sidebarItems, currentPlayListId, handlePlayListClk }) {
           {sidebarItems?.map((item) => (
             <li
               key={item.id}
-              onClick={() => handlePlayListClk(item.id)}
+              onClick={() => handlePlayListClk(item)}
               className={` sidebar-item ${
                 currentPlayListId === item.id ? "active" : ""
               }`}
