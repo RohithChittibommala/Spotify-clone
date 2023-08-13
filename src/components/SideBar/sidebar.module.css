@@ -31,12 +31,38 @@
     transition: all 100ms ease-in-out;
 }
 
-.sidebar-item:hover {
-    background-color: #181818;
+@media only screen and (min-width:481px) {
+    .sidebar-item:hover {
+        background-color: #181818;
+    }
+}
+
+
+.sidebar-item.active {
+    color: #fff;
+}
+
+@media only screen and (max-width:480px) {
+.sidebar-items-container {
+    flex-direction: row;
+    overflow: scroll hidden;
+}
+
+.sidebar-item {
+    flex: 0 0 auto;
+    background-color: #1b1919;
+    padding:0.6rem 1rem;
+    border-radius: 1.5rem;
 }
 
 .sidebar-item.active {
-    color: #fff
+    background-color: #fff;
+    color:#000;
+}
+
+.sidebar-logo-container {
+    padding:0;
+}
 }
 
 /* Shimmer Styles */

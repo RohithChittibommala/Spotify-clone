@@ -1,15 +1,24 @@
  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
- 
+
  * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   scrollbar-width: thin;
+   scrollbar-color: #888 #212020;
+
+   scrollbar-track-color: #212020;
+
+   scrollbar-thumb-color: #888;
+
+   scrollbar-thumb-color: #555;
  }
 
  ::-webkit-scrollbar {
    width: 8px;
 
  }
+
  ::-webkit-scrollbar-track {
    background: #212020;
  }
@@ -21,47 +30,52 @@
 
  ::-webkit-scrollbar-thumb:hover {
    background: #555;
-  }
+ }
 
-    scrollbar-width: thin;
-    scrollbar-color: #888 #212020;
-  
-    scrollbar-track-color: #212020;
-  
-    scrollbar-thumb-color: #888;
-  
-    scrollbar-thumb-color: #555;
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
 
-  100% {
-    transform: rotate(360deg);
-  }
-}
+ @keyframes spin {
+   0% {
+     transform: rotate(0deg);
+   }
 
-input, button {
-  outline: none;
-  border:none;
-  background:none;
-}
+   100% {
+     transform: rotate(360deg);
+   }
+ }
+
+ input,
+ button {
+   outline: none;
+   border: none;
+   background: none;
+ }
 
  body {
-  color:#fff;
-  font-family: 'Inter', sans-serif ;
+   color: #fff;
+   font-family: 'Inter', sans-serif;
  }
 
  .main {
-  display: flex;
-  gap:1rem;
-  background-color: #000;
-  padding: 1.5rem 1rem;
-  height: 100vh;
-  overflow: hidden;
+   display: flex;
+   gap: 1rem;
+   background-color: #000;
+   padding: 1.5rem 1rem;
+   height: 100vh;
+   overflow: hidden;
  }
 
- 
 
+ @media only screen and (max-width:480px) {
 
+   ::-webkit-scrollbar {
+     height: 0;
+     width: 0;
+   }
+
+   .main {
+     flex-direction: column;
+     overflow: scroll;
+     padding: 1rem 0.75rem;
+   }
+ }
