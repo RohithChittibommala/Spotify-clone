@@ -1,12 +1,13 @@
 import { useLazyQuery } from "@apollo/client";
 import { GET_SONGS_BY_PLAYLIST_ID } from "../../utils/graphqlQueries";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import useDebounce from "../../utils/useDebounce";
-import SongCard from "../SongCard/SongCard";
-import SongCardShimmer from "../../utils/Shimmers/SongCardShimmer/SongCardShimmer";
-import Player from "../Player/Index";
+import SongCard from "../SongCard";
+import SongCardShimmer from "../SongCard/SongCardShimmer";
+import Player from "../Player";
+import styles from "./playlist.module.css";
 
 function PlayList({ currentPlayListMetaData }) {
   const [searchText, setSearchText] = useState(null);
@@ -36,25 +37,26 @@ function PlayList({ currentPlayListMetaData }) {
   };
 
   return (
-    <div className="playlist-container">
-      <div className={`playlist ${activeSong ? "" : "full"}`}>
-        <div className="playlist-name-container">
+    <div className={styles["playlist-container"]}>
+      <div className={`${styles.playlist} ${activeSong ? "" : styles.full}`}>
+        <div className={styles["playlist-name-container"]}>
           <h2>{currentPlayListMetaData?.title}</h2>
         </div>
-        <div className="search-container">
+        <div className={styles["search-container"]}>
           <input
             type="text"
             placeholder="Search Song, Artist"
             onChange={(e) => setSearchText(e.target.value)}
           />
-          <FontAwesomeIcon icon={faSearch} className="search-icon" />
+          <FontAwesomeIcon icon={faSearch} className={styles["search-icon"]} />
         </div>
         {loading ? (
-          Array(5)
-            .fill(".")
-            .map((_, ind) => <SongCardShimmer key={ind} />)
+          <SongCardShimmer />
         ) : (
-          <div className="playlist-songs-container" onClick={handleSongClick}>
+          <div
+            className={styles["playlist-songs-container"]}
+            onClick={handleSongClick}
+          >
             {data?.getSongs?.map((song) => (
               <SongCard
                 key={song.title}

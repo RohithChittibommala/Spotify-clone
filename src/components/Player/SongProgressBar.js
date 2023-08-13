@@ -1,4 +1,5 @@
 import { formatTime } from "../../utils/utlities";
+import styles from "./player.module.css";
 
 function SongProgressBar({
   duration,
@@ -15,11 +16,11 @@ function SongProgressBar({
   const completedProgress = (currentDuration / duration) * 100;
 
   return (
-    <div className="progress-bar">
+    <div className={styles["progress-bar"]}>
       <span>{formatTime(audioRef.current?.currentTime || 0)}</span>
-      <div className="input-container">
+      <div className={styles["input-container"]}>
         <div
-          className="completed-progress"
+          className={styles["completed-progress"]}
           style={{ width: `${completedProgress}%` }}
         ></div>
         <input

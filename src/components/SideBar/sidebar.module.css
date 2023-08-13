@@ -1,0 +1,69 @@
+.sidebar {
+    flex-basis: 20%;
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+}
+
+
+.sidebar-logo-container {
+    padding-left: 10px;
+    height: 40px;
+}
+
+.logo {
+    height: 100%;
+    object-fit: contain;
+}
+
+.sidebar-items-container {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.sidebar-item {
+    padding: 0.75rem;
+    color: #8e887f;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 100ms ease-in-out;
+}
+
+.sidebar-item:hover {
+    background-color: #181818;
+}
+
+.sidebar-item.active {
+    color: #fff
+}
+
+/* Shimmer Styles */
+
+@keyframes shimmer {
+    0% {
+
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.shimmer-content {
+    height: 1.8rem;
+    background: #888;
+    animation: shimmer 1s infinite;
+    width: 80%;
+    opacity: 0.4;
+}
+
+.shimmer-logo {
+    height: 2.5rem;
+    background: #888;
+    animation: shimmer 1s infinite;
+    width: 80%;
+    opacity: 0.4;
+}

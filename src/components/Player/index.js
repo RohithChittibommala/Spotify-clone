@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import SongProgressBar from "./ProgressBar";
 import Controls from "./Controls";
+import DisplaySongDetails from "./DisplaySongDetails";
+import SongProgressBar from "./SongProgressBar";
+import styles from "./player.module.css";
 
 function Player({ setCurrentSong, activeSong }) {
   const audioRef = useRef();
@@ -39,8 +41,12 @@ function Player({ setCurrentSong, activeSong }) {
   }, []);
 
   return (
-    <div className="player">
-      <button type="button" className="close-btn" onClick={handleCloseBtnClk}>
+    <div className={styles["player"]}>
+      <button
+        type="button"
+        className={styles["close-btn"]}
+        onClick={handleCloseBtnClk}
+      >
         Close
       </button>
       <DisplaySongDetails activeSong={activeSong} />
@@ -56,20 +62,6 @@ function Player({ setCurrentSong, activeSong }) {
         handlePlayPause={handlePlayPause}
         isPlaying={isPlaying}
       />
-    </div>
-  );
-}
-
-function DisplaySongDetails({ activeSong }) {
-  return (
-    <div className="song-details ">
-      <div className="info">
-        <h2>{activeSong?.title}</h2>
-        <p>{activeSong?.artist}</p>
-      </div>
-      <div className="poster-container">
-        <img src={activeSong?.photo} alt="song poster" />
-      </div>
     </div>
   );
 }

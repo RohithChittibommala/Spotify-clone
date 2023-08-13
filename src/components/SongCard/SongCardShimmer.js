@@ -1,7 +1,7 @@
 import styles from "./songcard.module.css";
 
-const SongCardShimmer = () =>
-  Array(5)
+const SongCardShimmer = () => {
+  return Array(5)
     .fill("")
     .map((_, ind) => (
       <div className={`song-card ${styles["song-card"]}`} key={ind}>
@@ -17,4 +17,5 @@ const SongCardShimmer = () =>
         </div>
       </div>
     ));
+};
 export default SongCardShimmer;
