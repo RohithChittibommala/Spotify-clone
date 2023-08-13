@@ -9,7 +9,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./player.module.css";
 
-function Controls({ handlePlayPause, handleNext, isPlaying }) {
+function Controls({
+  handlePlayPause,
+  handleNextBtnClk,
+  isPlaying,
+  handlePrevBtnClk,
+}) {
   return (
     <div className={styles["controls-container"]}>
       <button className={styles["ellipsis-btn"]}>
@@ -19,7 +24,7 @@ function Controls({ handlePlayPause, handleNext, isPlaying }) {
         />
       </button>
       <div className={styles["song-controls"]}>
-        <button onClick={handleNext}>
+        <button onClick={handlePrevBtnClk}>
           <FontAwesomeIcon
             className={styles["control-icon"]}
             icon={faBackward}
@@ -31,7 +36,7 @@ function Controls({ handlePlayPause, handleNext, isPlaying }) {
             icon={isPlaying ? faPause : faPlay}
           />
         </button>
-        <button onClick={handleNext}>
+        <button onClick={handleNextBtnClk}>
           <FontAwesomeIcon
             className={styles["control-icon"]}
             icon={faForward}

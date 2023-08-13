@@ -1,6 +1,10 @@
+import { useEffect, useRef } from "react";
 import styles from "./player.module.css";
+// import useDominantColor from "../../utils/useDominantColor";
 
 function DisplaySongDetails({ activeSong }) {
+  const imageRef = useRef();
+
   return (
     <div className={styles["song-details"]}>
       <div className={styles["info"]}>

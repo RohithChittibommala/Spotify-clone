@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SideBar from "./components/SideBar";
 import PlayList from "./components/PlayList";
 import { GET_PLAYLISTS } from "./utils/graphqlQueries";
@@ -11,6 +11,7 @@ function App() {
   const { loading: playlistsLoading, data: playlistData } =
     useQuery(GET_PLAYLISTS);
   const [currentPlayListMetaData, setCurrentPlayListMetaData] = useState();
+  const mainRef = useRef();
 
   const handlePlayListClk = (playList) => {
     setCurrentPlayListMetaData(playList);
@@ -31,7 +32,7 @@ function App() {
 
   console.log(currentPlayListMetaData);
   return (
-    <div className="main">
+    <div className="main" ref={mainRef}>
       {currentPlayListMetaData ? (
         <SideBar
           playlistsLoading={playlistsLoading}
@@ -43,7 +44,10 @@ function App() {
         <SideBarShimmer />
       )}
       {currentPlayListMetaData && (
-        <PlayList currentPlayListMetaData={currentPlayListMetaData} />
+        <PlayList
+          currentPlayListMetaData={currentPlayListMetaData}
+          mainRef={mainRef}
+        />
       )}
     </div>
   );

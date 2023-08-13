@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import App from "./App.js";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const API_SERVER = "https://api.ss.dev/resource/api";

@@ -4,7 +4,13 @@ import DisplaySongDetails from "./DisplaySongDetails";
 import SongProgressBar from "./SongProgressBar";
 import styles from "./player.module.css";
 
-function Player({ setCurrentSong, activeSong }) {
+function Player({
+  setCurrentSong,
+  activeSong,
+  mainRef,
+  handlePrevBtnClk,
+  handleNextBtnClk,
+}) {
   const audioRef = useRef();
   const progressBarRef = useRef();
   const [currentDuration, setCurrentDuration] = useState(0);
@@ -49,7 +55,7 @@ function Player({ setCurrentSong, activeSong }) {
       >
         Close
       </button>
-      <DisplaySongDetails activeSong={activeSong} />
+      <DisplaySongDetails activeSong={activeSong} mainRef={mainRef} />
       <audio ref={audioRef} src={activeSong?.url} />
       <SongProgressBar
         duration={audioRef.current?.duration || 0}
@@ -58,7 +64,8 @@ function Player({ setCurrentSong, activeSong }) {
         currentDuration={currentDuration}
       />
       <Controls
-        handleNext={() => {}}
+        handleNextBtnClk={handleNextBtnClk}
+        handlePrevBtnClk={handlePrevBtnClk}
         handlePlayPause={handlePlayPause}
         isPlaying={isPlaying}
       />
