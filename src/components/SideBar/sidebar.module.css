@@ -42,35 +42,6 @@
     color: #fff;
 }
 
-@media only screen and (max-width:480px) {
-    .sidebar {
-        flex-basis: auto;
-        /* position: sticky;
-        top: 0 */
-    }
-
-    .sidebar-items-container {
-        flex-direction: row;
-        overflow: scroll hidden;
-    }
-
-    .sidebar-item {
-        flex: 0 0 auto;
-        background-color: #1b1919;
-        padding: 0.6rem 1rem;
-        border-radius: 1.5rem;
-    }
-
-    .sidebar-item.active {
-        background-color: #fff;
-        color: #000;
-    }
-
-    .sidebar-logo-container {
-        padding: 0;
-    }
-}
-
 /* Shimmer Styles */
 
 @keyframes shimmer {
@@ -98,4 +69,44 @@
     animation: shimmer 1s infinite;
     width: 80%;
     opacity: 0.4;
+}
+
+@media only screen and (max-width:560px) {
+    .sidebar {
+        flex-basis: auto;
+        position: sticky;
+        top: 0
+    }
+
+    .sidebar-items-container {
+        flex-direction: row;
+        overflow: scroll hidden;
+    }
+
+    .sidebar-item {
+        flex: 0 0 auto;
+        background-color: #1b1919;
+        padding: 0.6rem 1rem;
+        border-radius: 1.5rem;
+    }
+
+    .sidebar-item.active {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .sidebar-logo-container {
+        padding: 0;
+    }
+
+    .shimmer-sidebar-item {
+        width: 200px;
+        height: 50px;
+        /* background: transparent; */
+    }
+
+    .shimmer-sidebar-item .shimmer-content {
+        height: 100%;
+        width: 100%;
+    }
 }

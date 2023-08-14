@@ -70,6 +70,35 @@
     padding-right: 0.5rem;
 }
 
+/* Shimmer Styles */
+
+@keyframes shimmer {
+    0% {
+
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.shimmer-name-content {
+    height: 1.8rem;
+    background: #888;
+    animation: shimmer 1s infinite;
+    width: 30%;
+    opacity: 0.4;
+}
+
+.shimmer-search-content {
+    height: 2.8rem;
+    background: #888;
+    animation: shimmer 1s infinite;
+    width: 100%;
+    opacity: 0.4;
+}
+
 @media only screen and (max-width:560px) {
 
     .playlist-container {
@@ -135,33 +164,4 @@
     }
 
 
-}
-
-/* Shimmer Styles */
-
-@keyframes shimmer {
-    0% {
-
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0.3;
-    }
-}
-
-.shimmer-name-content {
-    height: 1.8rem;
-    background: #888;
-    animation: shimmer 1s infinite;
-    width: 30%;
-    opacity: 0.4;
-}
-
-.shimmer-search-content {
-    height: 2.8rem;
-    background: #888;
-    animation: shimmer 1s infinite;
-    width: 100%;
-    opacity: 0.4;
 }

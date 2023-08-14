@@ -12,7 +12,10 @@ function SideBarShimmer() {
         {Array(5)
           .fill("")
           .map((_, index) => (
-            <li key={index} className={`${styles["sidebar-item"]}`}>
+            <li
+              key={index}
+              className={`${styles["sidebar-item"]} ${styles["shimmer-sidebar-item"]}`}
+            >
               <div className={styles["shimmer-content"]}></div>
             </li>
           ))}
