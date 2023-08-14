@@ -43,26 +43,30 @@
 }
 
 @media only screen and (max-width:480px) {
-.sidebar-items-container {
-    flex-direction: row;
-    overflow: scroll hidden;
-}
+    .sidebar {
+        flex-basis: auto;
+    }
 
-.sidebar-item {
-    flex: 0 0 auto;
-    background-color: #1b1919;
-    padding:0.6rem 1rem;
-    border-radius: 1.5rem;
-}
+    .sidebar-items-container {
+        flex-direction: row;
+        overflow: scroll hidden;
+    }
 
-.sidebar-item.active {
-    background-color: #fff;
-    color:#000;
-}
+    .sidebar-item {
+        flex: 0 0 auto;
+        background-color: #1b1919;
+        padding: 0.6rem 1rem;
+        border-radius: 1.5rem;
+    }
 
-.sidebar-logo-container {
-    padding:0;
-}
+    .sidebar-item.active {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .sidebar-logo-container {
+        padding: 0;
+    }
 }
 
 /* Shimmer Styles */

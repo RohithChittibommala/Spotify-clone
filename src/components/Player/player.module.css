@@ -10,6 +10,10 @@
     width: 60%;
 }
 
+.open-playlistbtn {
+    display: none;
+}
+
 .player .close-btn {
     padding: 0.5rem 1rem;
     background: transparent;
@@ -158,4 +162,26 @@ button.pause .control-icon {
 
 .controls-container>button>.control-icon {
     font-size: 0.9rem;
+}
+
+
+@media only screen and (max-width:560px) {
+    .close-btn {
+        display: none;
+    }
+
+    .player>div {
+        width: 100%;
+    }
+
+    .song-details {
+        margin-top: 1rem;
+    }
+
+    .open-playlistbtn {
+        display: block;
+        padding: 0.5rem 1rem;
+        background: #383636;
+        border-radius: 4px;
+    }
 }
