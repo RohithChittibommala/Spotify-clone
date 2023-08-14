@@ -30,7 +30,6 @@ function App() {
     );
   }
 
-  console.log(currentPlayListMetaData);
   return (
     <div className="main" ref={mainRef}>
       {currentPlayListMetaData ? (

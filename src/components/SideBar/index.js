@@ -2,7 +2,6 @@ import Logo from "../../assets/logo.svg";
 import styles from "./sidebar.module.css";
 
 function SideBar({ sidebarItems, currentPlayListId, handlePlayListClk }) {
-  console.log(currentPlayListId);
   return (
     <div className={styles["sidebar"]}>
       <div className={styles["sidebar-logo-container"]}>

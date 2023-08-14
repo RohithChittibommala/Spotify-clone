@@ -1,6 +1,5 @@
 import styles from "./sidebar.module.css";
 function SideBarShimmer() {
-  console.log(styles);
   return (
     <div className={styles["sidebar"]}>
       <div className={styles["sidebar-logo-container"]}>

@@ -42,7 +42,6 @@ function PlayList({ currentPlayListMetaData, mainRef }) {
       (song) => song.title === activeSong.title
     );
     const nextSongInd = (currentSongInd + 1) % data.getSongs.length;
-    console.log({ currentSongInd, nextSongInd, songs: data.getSongs });
     setActiveSong(data.getSongs[nextSongInd]);
   };
 
@@ -52,7 +51,6 @@ function PlayList({ currentPlayListMetaData, mainRef }) {
     );
     const prevSongInd =
       (currentSongInd - 1 + data.getSongs?.length) % data.getSongs.length;
-    console.log({ currentSongInd, prevSongInd, songs: data.getSongs });
     setActiveSong(data.getSongs[prevSongInd]);
   };
 
