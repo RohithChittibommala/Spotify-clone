@@ -1,6 +1,6 @@
 import { useLazyQuery } from "@apollo/client";
 import { GET_SONGS_BY_PLAYLIST_ID } from "../../graphql/queries/getSongsByPlaylistIdQuery";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import useDebounce from "../../hooks/useDebounce";

@@ -1,4 +1,4 @@
-import { formatTime } from "../../utils/utlities";
+import { formatTime } from "../../utils/formatTime";
 import styles from "./songcard.module.css";
 
 function SongCard({ artist, duration, photo, title, isActive }) {
