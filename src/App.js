@@ -8,8 +8,11 @@ import { GET_PLAYLISTS } from "./graphql/queries/getPlaylistQuery";
 import "./App.css";
 
 function App() {
-  const { loading: playlistsLoading, data: playlistData } =
-    useQuery(GET_PLAYLISTS);
+  const {
+    loading: playlistsLoading,
+    data: playlistData,
+    error: playlistsError,
+  } = useQuery(GET_PLAYLISTS);
   const [currentPlayListMetaData, setCurrentPlayListMetaData] = useState();
   const mainRef = useRef();
 
@@ -28,6 +31,10 @@ function App() {
         <PlayListShimmer />
       </div>
     );
+  }
+
+  if (playlistsError) {
+    return <p>Error: {playlistsError.message}</p>;
   }
 
   return (

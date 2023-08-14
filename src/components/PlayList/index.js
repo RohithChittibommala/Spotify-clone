@@ -25,7 +25,7 @@ function PlayList({ currentPlayListMetaData, mainRef }) {
         search: debouncedValue,
       },
     });
-  }, [debouncedValue, getSongsByPlayListId, currentPlayListMetaData]);
+  }, [debouncedValue, currentPlayListMetaData]);
 
   const handleSongClick = (e) => {
     const songCard = e.target.closest(".song-card");
@@ -98,9 +98,8 @@ function PlayList({ currentPlayListMetaData, mainRef }) {
           />
           <FontAwesomeIcon icon={faSearch} className={styles["search-icon"]} />
         </div>
-        {loading ? (
-          <SongCardShimmer />
-        ) : (
+        {loading && <SongCardShimmer />}
+        {data && (
           <div
             className={styles["playlist-songs-container"]}
             onClick={handleSongClick}
@@ -114,6 +113,7 @@ function PlayList({ currentPlayListMetaData, mainRef }) {
             ))}
           </div>
         )}
+        {error && <p>{error?.message}</p>}
       </div>
       {activeSong && (
         <Player
