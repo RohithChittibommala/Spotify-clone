@@ -4,7 +4,8 @@
     transition: all 0.25s ease;
 }
 
-.open-playlist-btn-container {
+.open-playlist-btn-container,
+.close-playlist-btn-container {
     display: none;
 }
 
