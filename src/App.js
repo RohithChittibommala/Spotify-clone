@@ -2,10 +2,10 @@ import { useQuery } from "@apollo/client";
 import { useEffect, useRef, useState } from "react";
 import SideBar from "./components/SideBar";
 import PlayList from "./components/PlayList";
-import { GET_PLAYLISTS } from "./utils/graphqlQueries";
 import SideBarShimmer from "./components/SideBar/SideBarShimmer";
-import "./App.css";
 import PlayListShimmer from "./components/PlayList/PlayListShimmer";
+import { GET_PLAYLISTS } from "./graphql/queries/getPlaylistQuery";
+import "./App.css";
 
 function App() {
   const { loading: playlistsLoading, data: playlistData } =

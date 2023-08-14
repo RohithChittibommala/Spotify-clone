@@ -5,11 +5,11 @@ import SongProgressBar from "./SongProgressBar";
 import styles from "./player.module.css";
 
 function Player({
-  setCurrentSong,
   activeSong,
   mainRef,
   handlePrevBtnClk,
   handleNextBtnClk,
+  handleCloseBtnClk,
 }) {
   const audioRef = useRef();
   const progressBarRef = useRef();
@@ -33,10 +33,6 @@ function Player({
     if (audioRef.current) {
       setCurrentDuration(audioRef.current.currentTime);
     }
-  };
-
-  const handleCloseBtnClk = () => {
-    setCurrentSong(null);
   };
 
   useEffect(() => {
