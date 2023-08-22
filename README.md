@@ -1,4 +1,4 @@
-# Frontend Task
+# Spotify Clone
 
 Technologies used - React.js
 - Hosted At : [here](https://fluffy-griffin-487207.netlify.app/)
@@ -69,19 +69,6 @@ src/
 - [x] Controlling music via seeker
 - [x] Responsive design
 
-### Could not implement the change background according to Song 
- - I tried to implement the feature of changing the website background according to the song poster, but I faced CORS error while implementing it 
- ```js
-Uncaught SecurityError: Failed to execute 'getImageData' on 'CanvasRenderingContext2D': The canvas has been tainted by cross-origin data
-```
- ```js
-Access to image at 'https://storage.googleapis.com/similar_sentences/Imagine%20Dragons%20-%20West%20Coast%20(Pendona.com).mp3' from origin 'http://127.0.0.1:5173' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
-```
-this feature can be implemented if  CORS headers are properly set on the server hosting the image to allow cross-origin access.
-The Algo for implementing this feature would be 
-
-- Construct a canvas
-- drawing the image on the canvas
 - iterating on the pixels of the image
 - counting the Red, Green, and Blue pixels 
 - finding the R,G,B % in the total image
